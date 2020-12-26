@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/ujs-client@1.1.8/dist-browser/index.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+        *{
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: beige;
+            min-height: 100%;
+            margin: 0;
+        }
+        #main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            padding: 2.5em;
+            border-radius: 0.5em;
+            box-shadow: gray 0px 0px 2em;
+        }
+        #add:hover{
+            cursor: pointer;
+        }
+        #runApp{
+            transition: all, 2s;
+        }
+        .col-5,.col-2{
+            padding-top: 0.2em;
+            padding-bottom: 0.2em;
+            background-color: rgba(39,41,43,0.03);
+            border: 1px solid rgba(39,41,43,0.1);
+            margin-top: 1px;
+            margin-bottom: 1px;
+        }
+        .col-2{
+            text-align: center;
+            background-color: #e9ecef;
+        }
+        .col-2:hover{
+            cursor: pointer;
+        }
+        #info{
+            background-color: white;
+            padding: 0.5em;
+            box-shadow: gray 0px 0px 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 로딩 페이지 -->
+    <div id="loading">
+        Loading
+    </div>
+    <!-- 템플릿 가져오기 -->
+    <div id="info" style="display: none;">
+        <div style="display:flex;">
+            <h4>수많은 템플릿 문법들</h4>
+            <button type="button" class="btn-close" aria-label="Close" id="closeInfo"></button>
+        </div>
+        <div>시간</div>
+        <div>{hour} : 현재 시</div>
+        <div>{min} : 현재 분</div>
+        <div>{sec} : 현재 초</div>
+        <div>날짜</div>
+        <div>{year} : 현재 년</div>
+        <div>{month} : 현재 달</div>
+        <div>{day} : 현재 일</div>
+        <div>디스코드</div>
+        <div>{sender} : 보낸이</div>
+        <div>{senderTag} : 보낸이 태그</div>
+    </div>
+    <!-- 설정 페이지 -->
+    <article id="main" style="display: none;"> <!--  style="display: none;" -->
+        <h1>discord bot with ujs</h1>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">토큰</span>
+            <input type="password" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="token">
+        </div>
+        <button type="button" class="btn btn-light" id="runApp">서버시작</button>
+
+        <div style="height: 3em;"></div>
+        <div id="addResArea">
+            <span>응답 추가하기</span>
+            <button type="button" class="btn btn-primary btn-sm" id="openInfo">?</button>
+            <div class="input-group mb-3" id="input_word">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropBtn">req</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#" class="dropdownItem">reg</a></li>
+                </ul>
+                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="path">
+                <span class="input-group-text" id="secondInputLabel">res</span>
+                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="response">
+                <span class="input-group-text" id="add">등록</span>
+            </div>
+            <div class="container" id="paths">
+                <div class="row">
+                    <div class="col">등록된 단어들:</div>
+                </div>
+                <div class="row" >
+                    <code class="col-5">ping</code>
+                    <code class="col-5">Pong!</code>
+                    <div class="col-2">삭제</div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <script src="./discord_bot.js"></script>
+</body>
+</html>
