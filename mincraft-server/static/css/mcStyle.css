@@ -1,0 +1,59 @@
+.mcInput{
+    text-shadow: rgba(0, 0, 0, 0.25) 0px 2px 0px;
+    color: rgb(37, 37, 37) !important;
+    border-color: rgb(0, 215, 107) !important;
+    background-color: #ffffff !important;
+    outline: none;
+    height: 24px;
+    box-sizing: border-box;
+    font-family: neodgm;
+    width: 300px;
+}
+
+.mcBtn {
+    height: 40px;
+    width: 400px;
+    outline: 2px solid black;
+    position: relative;
+    margin: 0;
+    display: inline-block;
+    background-image: url('http://charliecowan.co.uk/mcbuttongenerator/button_center.png');
+    background-repeat: repeat;
+    padding: 0;
+    font-family: Minecraftia;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px #4C4C4C;
+    border-bottom: 4px solid #565656;
+    border-right: 2px solid #565656;
+    border-left: 2px solid #AAA;
+    border-top: 2px solid #AAA;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+  
+.mcBtn span {
+    position: relative;
+    line-height: 40px;
+    bottom: 3px;
+}
+
+.mcBtn:hover {
+    cursor: pointer;
+    border-bottom: 4px solid #59639A;
+    border-right: 2px solid #59639A;
+    border-left: 2px solid #BDC6FF;
+    border-top: 2px solid #BDC6FF;
+    background-image: url('http://charliecowan.co.uk/mcbuttongenerator/button_active_center.png');
+    color: #FFFFA0;
+}
+
+.diabledBtn:hover{
+    cursor: default;
+    border-bottom: 4px solid #565656;
+    border-right: 2px solid #565656;
+    border-left: 2px solid #AAA;
+    border-top: 2px solid #AAA;
+    background-image: url('http://charliecowan.co.uk/mcbuttongenerator/button_center.png');
+    color: white;
+}

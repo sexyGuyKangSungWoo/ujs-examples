@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/ujs-client@1.1.8/dist-browser/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/mcFont.css">
+    <link rel="stylesheet" type="text/css" href="static/css/mcStyle.css">
+    <style>
+        html,body{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient( to bottom, rgb(148, 192, 230), rgb(255, 255, 255) )
+        }
+        section#main{
+            align-items: center;
+            flex-direction: column;
+            box-shadow: gray 0px 0px 10px;
+        }
+        nav{
+            width: 100%;
+            display: flex;
+            background-image: url(./static/img/grass.jpg);
+            background-size: 80px;
+            height: 80px;
+            align-items: center;
+        }
+        nav > img{
+            margin: 10px;
+            box-shadow: rgb(82, 82, 82) 0px 0px 5px;
+        }
+        article{
+            display: flex;
+            flex-direction: column;
+            background-image: url(./static/img/dirt.jpg);
+            background-size: 80px;
+            align-items: center;
+        }
+        #inputArea{
+            display: flex;
+            justify-content: stretch;
+        }
+        #inputArea > div{
+            display: flex;
+            flex-direction: column;
+        }
+        #keys > div, #values > div{
+            height: 25px;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 25px;
+            margin: 5px;
+        }
+        .start{
+            width: 300px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <section id="loading">
+        <h1>loading</h1>
+    </section>
+    <section id="main" style="display: none;">
+        <nav>
+            <img src="./static/img/ujs.png" width="60" height="60">
+            <h1 class="mc white shadow">Minecraft Server With UJS</h1>
+        </nav>
+        <article>
+            <h1 class="mckr white shadow">서버 설정</h1>
+            <div id="inputArea">
+                <div id="keys">
+                    <div>
+                        <label class="mckr white shadow" for="motd">서버 이름</label>
+                    </div>
+                    <div>
+                        <label class="mckr white shadow" for="port">포트</label>
+                    </div>
+                    <div>
+                        <label class="mckr white shadow" for="max-players">제한 인원</label>
+                    </div>
+                    <div>
+                        <label class="mckr white shadow" for="online-mode">온라인</label>
+                    </div>
+                    <div>
+                        <label class="mckr white shadow" for="logging">로그 남기기</label>
+                    </div>
+                    <div>
+                        <label class="mckr white shadow" for="gameMode">기본 게임모드</label>
+                    </div>
+                    <div>
+                        <label class="mckr white shadow" for="difficulty">어려움</label>
+                    </div>
+                    <div>
+                        <label class="mckr white shadow" for="worldFolder">월드 폴더 이름</label>
+                    </div>
+                    <div>
+                        <label class="mckr white shadow" for="kickTimeout">킥 제한시간</label>
+                    </div>
+                    <div>
+                        <label class="mckr white shadow" for="view-distance">가시거리</label>
+                    </div>
+                    <div>
+                        <label class="mckr white shadow" for="everybody-op">모두 op주기</label>
+                    </div>
+                    <div>
+                        <label class="mckr white shadow" for="max-entities">최대 엔터티</label>
+                    </div>
+                    <div>
+                        <label class="mckr white shadow" for="version">버전</label>
+                    </div>
+                </div>
+                <div id="values">
+                    <div>
+                        <input type="text" id="motd" class="mcInput" value="A Minecraft Server with UJS">
+                    </div>
+                    <div>
+                        <input type="number" id="port" class="mcInput" min="0" max="65535" value="25565">
+                    </div>
+                    <div>
+                        <input type="number" id="max-players" class="mcInput" value="10">
+                    </div>
+                    <div>
+                        <input type="checkbox" id="online-mode" class="mcInput" checked>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="logging" class="mcInput" checked>
+                    </div>
+                    <div>
+                        <input type="number" id="gameMode" class="mcInput" value="1">
+                    </div>
+                    <div>
+                        <input type="number" id="difficulty" class="mcInput" value="1">
+                    </div>
+                    <div>
+                        <input type="text" id="worldFolder" class="mcInput" value="world">
+                    </div>
+                    <div>
+                        <input type="number" id="kickTimeout" class="mcInput" value="10000">
+                    </div>
+                    <div>
+                        <input type="number" id="view-distance" class="mcInput" value="10">
+                    </div>
+                    <div>
+                        <input type="checkbox" id="everybody-op" class="mcInput" checked>
+                    </div>
+                    <div>
+                        <input type="number" id="max-entities" class="mcInput" value="100">
+                    </div>
+                    <div>
+                        <input type="text" id="version" class="mcInput" value="1.16.1">
+                    </div>
+                </div>
+            </div>
+            <div class="mcBtn start" id="startBtn">
+                <span>start server</span>
+            </div>
+        </article>
+        <script src="./mc.js"></script>
+    </section>
+</body>
+</html>
