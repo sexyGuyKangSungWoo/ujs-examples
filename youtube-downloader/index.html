@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/ujs-client@1.1.8/dist-browser/index.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+        #loading{
+            width: 100%;
+            height: 100%;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        *{
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 300;
+        }
+        body{
+            margin: 0px;
+            background-color: #181818;
+            min-height: 100%;
+            color: white;
+        }
+        #main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* 상단바 아이템들 */
+        #url{
+            width: 48%;
+            height: 30px;
+            border: 1px solid #303030;
+            box-sizing: border-box;
+            border-radius: 2px 0 0 2px;
+            padding-left: 5px;
+            margin-right: 0px;
+            background-color: #121212;
+            color: #e2e2e2;
+        }
+        #url:focus{
+            border: 1px solid #1c62b9;
+            outline: none;
+        }
+        #download{
+            border: 1px solid #303030;
+            border-left: 0px;
+            box-sizing: border-box;
+            height: 30px;
+            border-radius: 0 2px 2px 0;
+            background-color: #303030;
+            width: 60px;
+        }
+        /* 상단바 */
+        #serchBar{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            height: 56px;
+            background-color: #202020;
+        }
+        .material-icons.md-light { color: rgba(150, 150, 150, 1); }
+        #logo{
+            margin-right: 10px;
+            display: flex;
+            justify-content: center;
+            color: white;
+            align-items: center;
+        }
+        article{
+            box-sizing: border-box;
+            /* 주석 */
+            /* border: 1px solid greenyellow;
+            border-top: 0px;
+            border-bottom: 0px; */
+            /* 할 부분 */
+            width: 100%;
+            margin: 10px;
+            max-width: 1280px;
+            padding: 10px 30px 10px 30px;
+        }
+        #videoList{
+            list-style: none;
+        }
+        /* 비디오 부분 */
+        .videoLi{
+            height: 94px;
+            width: 100%;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+        }
+        .videoLi > img{
+            height: 94px;
+            margin-right: 1em;
+        }
+        .videoLi > .detail{
+            display: flex;
+            flex-direction: column;
+            margin-right: 3em;
+        }
+        /* detail 부분 */
+        .detail > .title{
+            font-weight: 400;
+        }
+        .detail > .uploader, .detail > .view{
+            font-weight: 200;
+            color: #aaaaaa;
+        }
+        
+    </style>
+    <link rel="stylesheet" type="text/css" href="static/css/loading.css">
+</head>
+<body>
+    <div id="loading">
+        <div class="load"></div>
+        로딩중...
+    </div>
+    <div id="main" style="display:none;">
+        <nav id="serchBar">
+            <span id="logo">
+                <img src="./static/img/ytlogo.svg" alt="yt logo" width="50" height="50">
+                Download With
+                <img src="./static/img/ujs.png" alt="ujs logo" width="40" height="40">
+            </span>
+            <input type="text" id="url" placeholder="URL">
+            <button id="download">
+                <span class="material-icons md-light">get_app</span>
+            </button>
+        </nav>
+        <article>
+            <div>
+                결과 폴더 주소 : <span id="resultPath"></span>
+            </div>
+            <ul id="videoList">
+                <!-- <li id="videoId" class="videoLi">
+                    <img src="https://i.ytimg.com/vi/hT_nvWreIhg/hqdefault.jpg" alt="thumbnail">
+                    <div class="detail">
+                        <span class="title">영상제목</span>
+                        <span class="uploader">업로더</span>
+                        <span class="view">조회수</span>
+                    </div>
+                    <span class="sm-load"></span>
+                </li> -->
+            </ul>
+        </article>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
