@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/ujs-client@1.1.8/dist-browser/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@3.0.4/dist/socket.io.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <input type="button" value="서버로 참여" id="server" class="button"/>
+        <input type="button" value="클라이언트로 참여" id="client" class="button"/>
+        <span id="ip"></span>
+      </div>
+
+      <div id="chats"></div>
+
+      <div id="form">
+        <input type="text" id="nickname" placeholder="NICKNAME" />
+        <input type="text" id="chat" placeholder="CHAT" />
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/ujs-client@1.1.8/dist-browser/index.js"></script>
+</head>
+<body>
+    <div id="loading">
+        Loading
+    </div>
+    <div id="main" style="display:none">
+        <h1>EXPRESS 서버를 만들어보자</h1>
+        <input type="value" id="port" placeholder="포트" value="80">
+        <input type="button" id="runApp" value="서버시작">
+        <input type="button" id="closeApp" value="서버종료">
+        <form>
+            <legend>응답 추가하기</legend>
+            <input type="text" placeholder="경로" id="path">
+            <textarea id="response"></textarea>
+            <input type="button" id="add" value="추가!">
+        </form>
+        <div id="paths">
+            
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
