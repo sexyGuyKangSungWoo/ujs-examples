@@ -146,6 +146,7 @@ async function runClient(addr) {
                 nickname: nicknameInput.value,
                 chat: chatInput.value
             });
+			chatInput.value = "";
         }
     });
 }
