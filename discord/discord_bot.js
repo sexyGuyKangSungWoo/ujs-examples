@@ -1,4 +1,3 @@
-// let botToken = 'NzkxNjUyMDMwNjI3MTg0Njcw.X-SRaA.uIRZu4_cjyfwsI9xI7iumUHjJOo';
 const loading = document.getElementById("loading");
 const main = document.getElementById("main");
 

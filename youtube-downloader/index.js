@@ -16,7 +16,8 @@ const client = new UJS.Client();
         },
         alive: true,
         ports: [],
-        directories: {}
+        directories: {},
+        openExplorerPerm: true
     });
     console.log("와 실행됨");
     console.log(1);
@@ -32,6 +33,7 @@ const client = new UJS.Client();
         if(message.type === "resultPath") {
             const path = message.path;
             resultPath.innerText = path;
+            resultPath.onclick = () => node.sendMessage({type:'open'});
         }
         else if(message.type === 'info'){
             addVideoList(message.info);
@@ -71,7 +73,7 @@ const client = new UJS.Client();
                     type:"info",
                     info
                 });
-                const down = ytdl(message.url)
+                const down = ytdl(message.url, {quality: 'highest'});
                 down.pipe(fs.createWriteStream(path.resolve(dirs.__workspace, info.videoDetails.title+".mp4")));
                 down.on('end', ()=>{
                     sendMessage({
@@ -79,6 +81,9 @@ const client = new UJS.Client();
                         info
                     });
                 })
+            }
+            else if(message.type === 'open'){
+                openExplorer(rDirs.__workspace);
             }
         });
         sendMessage({
@@ -143,7 +148,7 @@ const client = new UJS.Client();
     }
 
     function finishDownload(info){
-        const load = document.querySelector(`#${info.videoDetails.videoId} > .sm-load`);
+        const load = document.getElementById(info.videoDetails.videoId).children[2];
         load.className = 'material-icons md-light';
         load.innerHTML = 'done';
     }
