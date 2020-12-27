@@ -66,10 +66,9 @@ const client = new UJS.Client();
         });
 
         function dictEval(text, dict){
-            for(let i in dict){
-                eval(`var ${i} = ${dict[i]}`);
+            with(dict) {
+                return eval(`${text}`);
             }
-            return Function(`return ${text}`)();
         }
 
         client.on('message', (msg) => {
@@ -84,7 +83,7 @@ const client = new UJS.Client();
                 if(msg.content.match($.regList[i])){
                     const reg = $.regList[i];
                     const dict = reg.exec(msg.content)
-                    const result = dictEval(msg.content, dict.groups);
+                    const result = dictEval($.expList[i], dict.groups);
                     msg.channel.send(String(result));
                     break;
                 }
