@@ -1,26 +1,22 @@
 
 
-const loading = document.getElementById("loading");
 const main = document.getElementById("main");
 
 const client = new UJS.Client();
 
-(async () => {
+
+async function runApp(port) {
     await client.connect();
     const node = await client.spawnDocker({
         dependencies: {
             "express": null
         },
         alive: true,
-        ports: [80],
+        ports: [port],
         directories: {}
     });
     console.log("와 실행됨");
     console.log(1);
-
-    // LOAD MAIN
-    loading.style.display = "none";
-    main.style.display = "block";
 
 
     // NODE NODE
@@ -84,10 +80,8 @@ const client = new UJS.Client();
             args
         })})`);
     }
-
-    function runApp(port) {
-        sendMessage("runApp", port);
-    }
+	
+    sendMessage("runApp", port);
 
     function closeApp() {
         sendMessage("closeApp");
@@ -96,13 +90,7 @@ const client = new UJS.Client();
     function addResponse(path, response) {
         sendMessage("addResponse", path, response);
     }
-
-
-
-    // DOM
-    document.getElementById("runApp").addEventListener("click", () => {
-        runApp(parseInt(document.getElementById("port").value));
-    });
+	
     document.getElementById("closeApp").addEventListener("click", () => {
         closeApp();
     });
@@ -121,5 +109,14 @@ const client = new UJS.Client();
         document.getElementById("path").value = "";
         document.getElementById("response").value = "";
         alert("등록 성공!");
+    });
+
+
+}
+
+(() => { 
+    // DOM
+    document.getElementById("runApp").addEventListener("click", () => {
+        runApp(parseInt(document.getElementById("port").value));
     });
 })();
